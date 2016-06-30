@@ -6,6 +6,8 @@ if (WITH_SYMENGINE_TEUCHOS)
     include_directories(BEFORE ${teuchos_BINARY_DIR})
 endif()
 
+include(cotire)
+
 set(SRC
     symengine_rcp.cpp
     basic.cpp
@@ -93,6 +95,7 @@ include_directories(BEFORE ${symengine_BINARY_DIR})
 include_directories(BEFORE ${symengine_SOURCE_DIR})
 
 add_library(symengine ${SRC})
+cotire(symengine)
 
 include(GenerateExportHeader)
 generate_export_header(symengine)
